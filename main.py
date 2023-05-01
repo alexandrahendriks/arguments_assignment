@@ -9,9 +9,40 @@ __human_name__ = 'arguments'
 
 # Add your code after this line
 
-def greet(name, template="Hello, <name>!"):
-    print(f"{template} {name}!")
-    return f"{template}, {name}!"
+# Greet Template
+def greet(name, template='Hello, <name>!'):
+    print(template.replace("<name>", name))
+    return(template.replace("<name>", name))
 
+print(greet("Sandy", "What's up <name>?"))
 
-greet("Sandy", "Whats up <name>")
+# Force
+
+def force(mass, body="earth"):
+    planets = {
+        'sun': 274,
+        'jupiter': 24.9,
+        'neptune': 11.2,
+        'saturn': 10.4,
+        'earth': 9.8,
+        'uranus': 8.9,
+        'venus': 8.9,
+        'mars': 3.7,
+        'mercury': 3.7,
+        'moon': 1.6,
+        'pluto': 0.6,
+    }
+    if body in planets.keys():
+        force = mass * planets[body]
+        return force
+    
+force(2, "pluto")
+
+# Gravity
+
+def pull(m1, m2, d):
+    G = 6.674*(10**-11)
+    gravitaion_pull = G * ((m1*m2)/(d**2))
+    return gravitaion_pull
+
+pull(800, 1500, 3)
